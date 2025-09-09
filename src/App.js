@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Box, Button } from '@chakra-ui/react';
+import Navbar from './Components/Navbar';
+import { Routes } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+import Notification from './pages/Notification';
+import Zones from './pages/Zones';
+import Visual from './pages/Visual';
+import Layout from './pages/Layout';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box>
+      <Routes>
+        <Route path="/" element={<Layout></Layout>}>
+          <Route path='/' element={<Dashboard></Dashboard>} />
+          <Route path='/notification' element={<Notification></Notification>} />
+          <Route path='/zones' element={<Zones></Zones>} />
+          <Route path='/visual' element={<Visual></Visual>} />
+        </Route>
+
+      </Routes>
+    </Box>
+
   );
 }
 
